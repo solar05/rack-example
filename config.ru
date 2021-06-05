@@ -7,12 +7,13 @@ class Application
       path = env['REQUEST_PATH']
       headers = {'Content-Type' => 'text/html'}
       body = ["Hello from rack app example! Requested path #{path} Current time is " + Time.new.strftime('%m/%d/%Y %H:%M %p')]
-      return [status, headers, body]
     else
       status = 405
+      headers = {}
       body = ["Method not allowed: #{method}"]
-      return [status, {}, body]
     end
+
+    [status, headers, body]
   end
 
   private
