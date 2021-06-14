@@ -1,6 +1,5 @@
 class Application
   def call(env)
-    inspect_env(env)
     method = env['REQUEST_METHOD']
     if method == 'GET'
       status = 200
